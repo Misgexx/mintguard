@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16
+    container_name: mintguard-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mintguard
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d mintguard"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build: .
+    container_name: mintguard-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Use the container hostname 'db' for Postgres
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@db:5432/mintguard
+    ports:
+      - "8000:8000"
+    # (Optional dev hot-reload; uncomment both lines if you want code reload)
+    # volumes:
+    #   - ./app:/app/app
+    # command: ["uvicorn","app.main:app","--host","0.0.0.0","--port","8000","--reload"]
+
+volumes:
+  pgdata:
