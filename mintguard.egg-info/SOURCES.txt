@@ -1,6 +1,0 @@
-pyproject.toml
-mintguard.egg-info/PKG-INFO
-mintguard.egg-info/SOURCES.txt
-mintguard.egg-info/dependency_links.txt
-mintguard.egg-info/requires.txt
-mintguard.egg-info/top_level.txt
