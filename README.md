@@ -10,7 +10,7 @@ Includes **payments**, **refunds**, **metrics**, **Docker**, and **tests**.
 
 ## 🚦 What this is 
 
--What this is (plain English)
+-What this is 
 
 •	When people click “Pay” twice (bad Wi-Fi, refresh, impatient taps), most systems risk charging them twice.
 
