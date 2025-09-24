@@ -11,8 +11,11 @@ Includes **payments**, **refunds**, **metrics**, **Docker**, and **tests**.
 ## 🚦 What this is 
 
 -What this is (plain English)
+
 •	When people click “Pay” twice (bad Wi-Fi, refresh, impatient taps), most systems risk charging them twice.
+
 •	MintGuard stops that: each payment attempt gets a unique Idempotency-Key. If the same request is retried, the system returns the same result instead of charging again.
+
 •	Every transaction is written to a double-entry ledger (debit cash, credit revenue). Refunds write the exact reverse entries. That makes totals always balance and the history auditable
 
 
@@ -48,7 +51,7 @@ _Heads-up: on free hosting, the first hit can be slow (cold start)._
 
 ---
 
-## 🔌 Quick CLI demo (PowerShell)
+## 🔌 Quick demo (PowerShell)
 
 ```powershell
 # 1) Create order
